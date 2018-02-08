@@ -7,6 +7,9 @@ you don't need to download it before using it. And this is the default
 template engine that **sfn** uses, if no engine is specified, ejs will be used
 by default.
 
+For more information about **ejs**, please visit 
+[https://www.npmjs.com/package/ejs](https://www.npmjs.com/package/ejs).
+
 ## Example
 
 ```typescript
