@@ -1,0 +1,29 @@
+{
+  "name": "sfn-ejs-engine",
+  "version": "0.1.0",
+  "description": "Ejs template engine for sfn framework.",
+  "main": "dist/index.js",
+  "types": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sfn",
+    "ejs"
+  ],
+  "author": {
+    "name": "Ayon Lee",
+    "email": "i@hyurl.com",
+    "url": "http://hyurl.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyurl/sfn-ejs-engine.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@types/ejs": "^2.5.0",
+    "ejs": "^2.5.7",
+    "sfn": "^0.1.0"
+  }
+}
