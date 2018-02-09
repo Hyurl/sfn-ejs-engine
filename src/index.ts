@@ -1,6 +1,9 @@
 import * as fs from "fs";
 import * as ejs from "ejs";
-import { TemplateEngine, TemplateOptions } from "sfn";
+import {
+    TemplateEngine,
+    TemplateOptions
+} from "sfn/src/core/tools/TemplateEngine";
 
 export interface EjsOptions extends TemplateOptions {
     /** When `false` no debug instrumentation is compiled. */
