@@ -2,8 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs = require("fs");
 const ejs = require("ejs");
-const TemplateEngine_1 = require("sfn/src/core/tools/TemplateEngine");
-class EjsEngine extends TemplateEngine_1.TemplateEngine {
+const _module = require("sfn/dist/core/tools/TemplateEngine");
+const TemplateEngine = _module.TemplateEngine;
+class EjsEngine extends TemplateEngine {
     renderFile(filename, vars = {}) {
         return new Promise((resolve, reject) => {
             let Class = this.constructor;
