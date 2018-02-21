@@ -23,36 +23,12 @@ export interface EjsOptions extends TemplateOptions {
 
 export class EjsEngine extends TemplateEngine {
     options: EjsOptions;
-    private static _caches: { [filename: string]: Function } = {};
 
     renderFile(filename: string, vars: { [name: string]: any } = {}): Promise<string> {
         return new Promise((resolve, reject) => {
-            let Class = <typeof EjsEngine>this.constructor;
-            if (Class._caches[filename] instanceof Function) {
-                try {
-                    resolve(Class._caches[filename](vars));
-                } catch (err) {
-                    reject(err);
-                }
-            } else {
-                let options = Object.assign({ filename }, this.options);
-                delete options.cache;
-                delete options.encoding;
-
-                fs.readFile(filename, this.options.encoding, (err, data) => {
-                    if (err) {
-                        reject(err);
-                    } else {
-                        try {
-                            let compile = ejs.compile(data, options);
-                            Class._caches[filename] = compile;
-                            resolve(compile(vars));
-                        } catch (err) {
-                            reject(err);
-                        }
-                    }
-                });
-            }
+            ejs.renderFile(filename, vars, this.options, (err, contents) => {
+                err ? reject(err) : resolve(contents);
+            });
         });
     }
 }
