@@ -57,8 +57,8 @@ in the template, just like this:
 </p>
 ```
 
-And in the layout template, use variable `$LayoutContent` to attach the target
-template, just like this (uses tag `<%-` instead of `<%=`):
+And in the layout template, use variable `$LayoutContents` to attach the 
+target template, just like this (uses tag `<%-` instead of `<%=`):
 
 ```html
 <!DOCTYPE html>
