@@ -1,6 +1,6 @@
 {
   "name": "sfn-ejs-engine",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Ejs template engine for sfn framework.",
   "main": "dist/index.js",
   "types": "src/index.ts",

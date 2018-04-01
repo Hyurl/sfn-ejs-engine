@@ -1,4 +1,5 @@
 import * as fs from "fs";
+import * as path from "path";
 import * as ejs from "ejs";
 import { TemplateEngine as Engine, TemplateOptions } from "sfn";
 
@@ -29,6 +30,25 @@ export class EjsEngine extends TemplateEngine {
             ejs.renderFile(filename, vars, this.options, (err, contents) => {
                 err ? reject(err) : resolve(contents);
             });
+        }).then((contents: string) => {
+            let matches = contents.match(/^<!--\s*layout:\s*(\S+?)\s*-->/);
+
+            if (matches) {
+                let layoutFile: string = matches[1],
+                    ext: string = path.extname(layoutFile);
+
+                if (!path.isAbsolute(layoutFile))
+                    layoutFile = path.resolve(path.dirname(filename), layoutFile);
+
+                if (!ext)
+                    layoutFile += ".ejs";
+
+                return this.renderFile(layoutFile, Object.assign({
+                    $LayoutContents: contents.substring(matches[0].length).trimLeft()
+                }, vars));
+            }
+
+            return contents;
         });
     }
 }
