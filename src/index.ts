@@ -1,9 +1,6 @@
 import * as path from "path";
 import * as ejs from "ejs";
-import { TemplateEngine as Engine, TemplateOptions } from "sfn";
-
-const _module = require("sfn/dist/core/tools/TemplateEngine");
-const TemplateEngine: typeof Engine = _module.TemplateEngine;
+import { TemplateEngine, TemplateOptions } from "sfn";
 
 export interface EjsOptions extends TemplateOptions {
     /** When `false` no debug instrumentation is compiled. */

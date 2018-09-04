@@ -2,9 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const path = require("path");
 const ejs = require("ejs");
-const _module = require("sfn/dist/core/tools/TemplateEngine");
-const TemplateEngine = _module.TemplateEngine;
-class EjsEngine extends TemplateEngine {
+const sfn_1 = require("sfn");
+class EjsEngine extends sfn_1.TemplateEngine {
     renderFile(filename, vars = {}) {
         return new Promise((resolve, reject) => {
             ejs.renderFile(filename, vars, this.options, (err, contents) => {
